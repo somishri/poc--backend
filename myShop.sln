@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shop.Domain", "shop.Domain\shop.Domain.csproj", "{9892695F-991E-4A3F-9AAA-3A59926ABC47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Models", "eshop.Models\eshop.Models.csproj", "{EC20B82B-3CC6-4A69-B328-3199090888B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshp.API", "eshp.API\eshp.API.csproj", "{837C8114-9F06-4B6D-8387-EFD0F8C8773A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9892695F-991E-4A3F-9AAA-3A59926ABC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9892695F-991E-4A3F-9AAA-3A59926ABC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9892695F-991E-4A3F-9AAA-3A59926ABC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9892695F-991E-4A3F-9AAA-3A59926ABC47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC20B82B-3CC6-4A69-B328-3199090888B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC20B82B-3CC6-4A69-B328-3199090888B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC20B82B-3CC6-4A69-B328-3199090888B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC20B82B-3CC6-4A69-B328-3199090888B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837C8114-9F06-4B6D-8387-EFD0F8C8773A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837C8114-9F06-4B6D-8387-EFD0F8C8773A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837C8114-9F06-4B6D-8387-EFD0F8C8773A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837C8114-9F06-4B6D-8387-EFD0F8C8773A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73CCACEA-A1F2-46BD-9CD7-8709E73F1D27}
+	EndGlobalSection
+EndGlobal
