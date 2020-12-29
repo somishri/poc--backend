@@ -9,7 +9,7 @@ namespace shop.Domain.Repo.Interface
 {
     public interface ICartRepo
     {
-        List<Carts> AddToCart(Carts cart,int customerId);
+        List<Carts> AddToCart(Carts cart,int customerIdNo);
         bool DeleteCartItem(int id);
         bool ClearCart(int cusId);
         List<Carts> GetCartItemByCustomerId(int customerId);
