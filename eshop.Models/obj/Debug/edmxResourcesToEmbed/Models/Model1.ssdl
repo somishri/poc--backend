@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="CusId" Type="int" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CusId" />
+    </Key>
+    <Property Name="CusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="nvarchar(max)" />
+    <Property Name="FirstName" Type="nchar" MaxLength="128" />
+    <Property Name="LastName" Type="nchar" MaxLength="128" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="128" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="OrderPlace">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CusId" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ProductImage" Type="varchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Carts__CusId__1F98B2C1">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CusId" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="CusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carts__ProductId__1EA48E88">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderPlac__CusId__22751F6C">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="OrderPlace" Type="Self.OrderPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CusId" />
+      </Principal>
+      <Dependent Role="OrderPlace">
+        <PropertyRef Name="CusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="shopModelStoreContainer">
+    <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderPlace" EntityType="Self.OrderPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Carts__CusId__1F98B2C1" Association="Self.FK__Carts__CusId__1F98B2C1">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carts__ProductId__1EA48E88" Association="Self.FK__Carts__ProductId__1EA48E88">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderPlac__CusId__22751F6C" Association="Self.FK__OrderPlac__CusId__22751F6C">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="OrderPlace" EntitySet="OrderPlace" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

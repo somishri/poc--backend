@@ -35,5 +35,11 @@ namespace eshp.API.Controllers
             return cartRepo.DeleteCartItem(id);
         }
 
+        [HttpDelete]
+        [Route("api/CartItem/{cusId}")]
+        public bool ClearData(int cusId)
+        {
+            return cartRepo.ClearCart(cusId);
+        }
     }
 }

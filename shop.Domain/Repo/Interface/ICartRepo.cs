@@ -11,6 +11,7 @@ namespace shop.Domain.Repo.Interface
     {
         List<Carts> AddToCart(Carts cart,int customerId);
         bool DeleteCartItem(int id);
+        bool ClearCart(int cusId);
         List<Carts> GetCartItemByCustomerId(int customerId);
     }
 }

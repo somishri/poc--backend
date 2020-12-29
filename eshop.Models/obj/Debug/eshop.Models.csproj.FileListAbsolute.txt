@@ -1,0 +1,12 @@
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\Mo.dll.config
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\Mo.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\Mo.pdb
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\EntityFramework.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\EntityFramework.xml
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Debug\eshop.Models.csprojAssemblyReference.cache
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Debug\eshop.Models.csproj.CoreCompileInputs.cache
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Debug\eshop.Models.csproj.CopyComplete
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Debug\Mo.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Debug\Mo.pdb

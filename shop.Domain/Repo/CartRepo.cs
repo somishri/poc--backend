@@ -93,6 +93,23 @@ namespace shop.Domain.Repo
          
         }
 
-       
+        public bool ClearCart(int cusId)
+        {
+            using (var context = new shopEntities())
+            {
+                var clearCart = context.Carts.Where(k => k.CusId == cusId).FirstOrDefault();
+
+                if (clearCart == null)
+                {
+                    return false;
+                }
+
+                context.Carts.Remove(clearCart);
+                context.SaveChanges();
+
+                return true;
+            }
+
+        }
     }
 }

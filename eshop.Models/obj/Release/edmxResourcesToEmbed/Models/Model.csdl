@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="CusId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Carts__CusId__1F98B2C1" FromRole="Carts" ToRole="Customers" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Carts__ProductId__1EA48E88" FromRole="Carts" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CusId" />
+    </Key>
+    <Property Name="CusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Carts__CusId__1F98B2C1" FromRole="Customers" ToRole="Carts" />
+    <NavigationProperty Name="OrderPlaces" Relationship="Self.FK__OrderPlac__CusId__282DF8C2" FromRole="Customers" ToRole="OrderPlaces" />
+  </EntityType>
+  <EntityType Name="OrderPlace">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CusId" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__OrderPlac__CusId__282DF8C2" FromRole="OrderPlaces" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ProductImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Carts__ProductId__1EA48E88" FromRole="Products" ToRole="Carts" />
+  </EntityType>
+  <Association Name="FK__Carts__CusId__1F98B2C1">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Carts" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CusId" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="CusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carts__ProductId__1EA48E88">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderPlac__CusId__282DF8C2">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="OrderPlaces" Type="Self.OrderPlace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CusId" />
+      </Principal>
+      <Dependent Role="OrderPlaces">
+        <PropertyRef Name="CusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="shopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="OrderPlaces" EntityType="Self.OrderPlace" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <AssociationSet Name="FK__Carts__CusId__1F98B2C1" Association="Self.FK__Carts__CusId__1F98B2C1">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carts__ProductId__1EA48E88" Association="Self.FK__Carts__ProductId__1EA48E88">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderPlac__CusId__282DF8C2" Association="Self.FK__OrderPlac__CusId__282DF8C2">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="OrderPlaces" EntitySet="OrderPlaces" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

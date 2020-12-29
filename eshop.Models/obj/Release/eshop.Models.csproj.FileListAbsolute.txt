@@ -1,0 +1,12 @@
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\Mo.dll.config
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\Mo.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\Mo.pdb
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\EntityFramework.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\EntityFramework.xml
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Release\eshop.Models.csprojAssemblyReference.cache
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Release\eshop.Models.csproj.CoreCompileInputs.cache
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Release\eshop.Models.csproj.CopyComplete
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Release\Mo.dll
+C:\Users\ssrivastva\Desktop\myShop\eshop.Models\obj\Release\Mo.pdb
